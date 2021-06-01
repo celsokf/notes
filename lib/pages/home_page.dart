@@ -15,6 +15,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("NOTES"),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add),
+            tooltip: 'Criar uma nova nota',
+            onPressed: () async {
+              final description =
+                  await Navigator.pushNamed(context, "/create-note");
+              if (description != null) {
+                _notes.add(description as String);
+                setState(() {});
+              }
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -41,17 +55,6 @@ class _HomePageState extends State<HomePage> {
               ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () async {
-          final description =
-              await Navigator.pushNamed(context, "/create-note");
-          if (description != null) {
-            _notes.add(description as String);
-            setState(() {});
-          }
-        },
       ),
     );
   }
