@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/card_widget.dart';
+import 'package:notes/modules/home/widgets/card_widget.dart';
+import 'package:notes/theme/app_theme.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,7 +14,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("NOTES"),
+        title: Text(
+          "NOTES",
+          style: AppTheme.textStyles.appBar,
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
